@@ -7,7 +7,9 @@ describe('Hono API routes', () => {
     const res = await app.request('/api/v1');
 
     expect(res.status).toBe(200);
-    await expect(res.text()).resolves.toBe('Maverick Driver Data API is running. Check /api/v1/status');
+    await expect(res.text()).resolves.toBe(
+      'Maverick Driver Data API is running. Check /api/v1/status',
+    );
   });
 
   it('GET /api/v1/status returns service health data', async () => {
@@ -18,9 +20,9 @@ describe('Hono API routes', () => {
     expect(body.performance).toBe('optimal');
     expect(Array.isArray(body.services)).toBe(true);
     expect(body.services).toEqual([
-      {'home-location': 'operational'},
-      {'trip-history': 'operational'},
-      {'vehicle-data': 'operational'}
+      { 'home-location': 'operational' },
+      { 'trip-history': 'operational' },
+      { 'vehicle-data': 'operational' },
     ]);
     expect(typeof body.timestamp).toBe('string');
     expect(Number.isNaN(Date.parse(body.timestamp))).toBe(false);

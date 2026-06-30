@@ -23,7 +23,7 @@ app.get('/api/v1/status', async (c) => {
   });
 });
 
-app.get('/api/v1/pdp/', async (c) => {
+app.get('/api/v1/pdp', async (c) => {
   try {
     const creds: DaemonServer = {
       host: HOST!,
